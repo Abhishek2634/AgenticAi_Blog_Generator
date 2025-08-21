@@ -20,13 +20,17 @@ async def create_blog(request: Request):
     print("LLM object created successfully")
     data = await request.json()
     topic = data.get("topic", "")
+    language = data.get("language", "")
 
     # get the llm object
     groqllm = GroqLLM()
     llm = groqllm.get_llm()
     # get the graph
     graph_builder = GraphBuilder(llm)
-    if topic:
+    if language and topic:
+        graph = graph_builder.setup_graph(usecase="language")
+        state = graph.invoke({"topic": topic, "current_language": language.lower()})
+    elif topic:
         graph = graph_builder.setup_graph("topic")
         state = graph.invoke({"topic": topic})
 

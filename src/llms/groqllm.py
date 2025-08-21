@@ -14,7 +14,7 @@ class GroqLLM:
             
             llm = ChatGroq(
                 api_key=groq_api_key, 
-                model="llama3-70b-8192"  
+                model="llama-3.3-70b-versatile"  
             )
             return llm
         except Exception as e:
