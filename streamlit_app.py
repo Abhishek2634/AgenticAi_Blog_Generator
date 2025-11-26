@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 from datetime import datetime
+import os
 
 # Page config
 st.set_page_config(
@@ -239,7 +240,7 @@ if 'current_blog' not in st.session_state:
     st.session_state.current_blog = None
 
 # API URL
-API_URL = "http://localhost:8000"
+API_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
 
 # Header
 st.markdown("""
