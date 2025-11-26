@@ -7,3 +7,4 @@ langgraph-cli[inmem]
 fastapi
 uvicorn
 watchdog
+streamlit
