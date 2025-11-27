@@ -28,29 +28,12 @@ This project features a decoupled architecture with a FastAPI backend for agenti
 
 ---
 
-## 📂 Project Structure
-
-.
-├── app.py                     # FastAPI backend entry point  
-├── streamlit_app.py           # Streamlit frontend application  
-├── Dockerfile                 # Docker configuration for HF Spaces  
-├── requirements.txt           # Python dependencies  
-└── src/  
-    ├── graphs/  
-    │   └── graph_builder.py   # LangGraph workflow definition  
-    ├── llms/  
-    │   └── groqllm.py        # Groq LLM configuration  
-    ├── nodes/                 # Agent node logic (Generator, Editor, etc.)  
-    └── states/                # State definitions (TypedDict)
-
----
-
 ## ⚙️ Setup & Installation
 
 ### 1. Clone the Repository
 ```bash
-git clone https://huggingface.co/spaces/your-username/blog-backend
-cd blog-backend
+git clone https://github.com/Abhishek2634/AgenticAi_Blog_Generator.git
+cd AgenticAi_Blog_Generator
 ```
 
 ### 2. Environment Variables
@@ -58,6 +41,7 @@ Create a `.env` file in the root directory with at least:
 
 ```
 GROQ_API_KEY=gsk_...
+BACKEND_URL="http://localhost:8000"
 LANGCHAIN_API_KEY=lsv2_...          # Optional, for tracing
 LANGCHAIN_TRACING_V2=true
 ```
@@ -78,8 +62,7 @@ uvicorn app:app --host 0.0.0.0 --port 8000 --reload
 
 Frontend (in a separate terminal):
 ```bash
-export BACKEND_URL="http://localhost:8000"
-streamlit run streamlit_app.py
+    streamlit run streamlit_app.py
 ```
 
 ---
